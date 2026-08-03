@@ -141,3 +141,30 @@ function exportPDF(mode) {
         document.body.classList.remove('print-all');
     }, 1200);
 }
+
+
+function switchMobileTab(tabId, btn) {
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const tabPages = document.querySelectorAll('.tab-page');
+    const bottomBtns = document.querySelectorAll('.bottom-btn');
+
+    tabPages.forEach(p => p.classList.remove('active'));
+    navButtons.forEach(b => b.classList.remove('active'));
+    bottomBtns.forEach(b => b.classList.remove('active'));
+
+    const page = document.getElementById(tabId);
+    if (page) page.classList.add('active');
+    if (btn) btn.classList.add('active');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showWxModal() {
+    const modal = document.getElementById('wx-modal');
+    if (modal) modal.classList.add('show');
+}
+
+function hideWxModal() {
+    const modal = document.getElementById('wx-modal');
+    if (modal) modal.classList.remove('show');
+}
