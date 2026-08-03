@@ -1553,22 +1553,40 @@ body {
 }
 
 @media (max-width: 850px) {
-    /* 隐藏桌面端大 Header */
+    /* 1. 防横向溢出全局保护 */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 12px !important;
+        margin: 0 !important;
+    }
+
+    .main-content {
+        padding: 12px 0 70px 0 !important;
+    }
+
+    /* 2. 隐藏桌面 Header 与 Hero 右侧二维码卡片 */
     .site-header {
         display: none !important;
     }
 
-    body {
-        padding-bottom: 70px !important;
+    .hero-contact-card {
+        display: none !important;
     }
 
-    /* 显示移动端顶部 Header */
+    /* 3. 移动端 Header & Hero 优化 */
     .mobile-header {
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: space-between;
         background: #0f172a;
-        padding: 12px 16px;
+        padding: 10px 14px;
         position: sticky;
         top: 0;
         z-index: 100;
@@ -1587,14 +1605,76 @@ body {
         font-weight: 600;
     }
 
-    /* 显示底部固定 TabBar */
+    .hero-card {
+        padding: 18px 14px !important;
+        border-radius: 12px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .hero-title {
+        font-size: 18px !important;
+        margin: 6px 0 !important;
+        line-height: 1.35 !important;
+    }
+
+    .hero-desc {
+        font-size: 12px !important;
+        margin-bottom: 14px !important;
+        line-height: 1.5 !important;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+        padding: 10px 6px !important;
+    }
+
+    .stat-value {
+        font-size: 16px !important;
+    }
+
+    .stat-label {
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+    }
+
+    /* 4. 强制所有 Grid 网格降级为单列纵向排列 (防止挤压与溢出) */
+    .comparison-grid,
+    .plan-cards-grid,
+    .pitfalls-grid,
+    .cert-grid,
+    .checklist-grid,
+    .pricing-cards,
+    .calc-body {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    /* 5. 卡片边距与字号微调 */
+    .section-block {
+        padding: 14px 12px !important;
+        margin-bottom: 12px !important;
+        border-radius: 8px !important;
+    }
+
+    .comp-card, .plan-card, .pitfall-card, .cert-card, .checklist-card, .price-box {
+        padding: 12px 14px !important;
+        border-radius: 8px !important;
+    }
+
+    /* 6. 显示底部固定 TabBar */
     .bottom-bar {
+        display: flex !important;
         position: fixed;
         bottom: 0; left: 0; right: 0;
         height: 60px;
         background: #ffffff;
         border-top: 1px solid #e2e8f0;
-        display: flex;
         justify-content: space-around;
         align-items: center;
         z-index: 999;
@@ -1609,11 +1689,11 @@ body {
         background: transparent;
         border: none;
         color: #64748b;
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 500;
         gap: 2px;
         cursor: pointer;
-        width: 33%;
+        width: 25%;
     }
 
     .bottom-btn.active {
