@@ -30,28 +30,29 @@
                 </div>
             </div>
             
+                        <!-- 主导航卡片切换 -->
             <nav class="main-nav">
                 <button class="nav-btn active" data-tab="manual-tab">
-                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2e3a10 10 0 0 1-10-10A10 10 0 0 1 12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10zm-1-15v6l5.2 3.1.8-1.3-4.5-2.7V7h-1.5z"/></svg>
-                    产品说明手册
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <span>📘 产品手册</span>
                 </button>
                 <button class="nav-btn" data-tab="pricing-tab">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
-                    服务报价单 & 计算器
+                    <span>💰 服务报价单</span>
                 </button>
-                            <button class="nav-btn" data-tab="pitfalls-tab">
+                <button class="nav-btn" data-tab="pitfalls-tab">
                     <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2V9h2v3z"/></svg>
-                    避坑指南 & 风险防范
+                    <span>⚠️ 避坑指南</span>
                 </button>
             </nav>
 
+                        <!-- PDF 导出操作区 -->
             <div class="header-actions">
-                <button class="btn btn-outline" onclick="exportPDF('current')" title="仅将当前展示的页面按 A4 PDF 导出">
-                    <svg class="icon" viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
-                    导出当前页 A4 PDF
+                <button class="btn-pdf secondary" onclick="exportPDF('page')" title="导出当前页 PDF">
+                    🖨️ 导出当前页
                 </button>
-                <button class="btn btn-primary" onclick="exportPDF('all')" title="将产品手册与服务报价单整套导出为完整 A4 PDF 文档">
-                    导出全册 A4 PDF
+                <button class="btn-pdf primary" onclick="exportPDF('full')" title="导出全册完整 PDF">
+                    📥 导出全册 PDF
                 </button>
             </div>
         </div>
