@@ -1,0 +1,1496 @@
+/* ==========================================================================
+   巴西企业代办 & 本土店服务 - 样式系统 (CSS Design System)
+   ========================================================================== */
+
+:root {
+    --primary: #0f172a;        /* 深蓝黑 */
+    --primary-light: #1e293b;  /* 深蓝灰色 */
+    --accent: #2563eb;         /* 皇家蓝 */
+    --accent-hover: #1d4ed8;
+    --success: #059669;        /* 翡翠绿 */
+    --warning: #d97706;        /* 琥珀黄 */
+    --danger: #dc2626;         /* 珊瑚红 */
+    --bg-light: #f8fafc;       /* 浅灰白背景 */
+    --card-bg: #ffffff;       /* 纯白卡片 */
+    --border-color: #e2e8f0;   /* 边框分割线 */
+    --text-main: #1e293b;      /* 主要文字 */
+    --text-muted: #64748b;     /* 辅助文字 */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.04);
+}
+
+/* 全局重置 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 顶部 Header */
+.site-header {
+    background: var(--primary);
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2563eb, #059669);
+    color: #ffffff;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.brand-subtitle {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+/* 导航 */
+.main-nav {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 4px;
+    border-radius: 30px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: #cbd5e1;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.nav-btn .icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.nav-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-btn.active {
+    background: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+}
+
+/* 按钮通用 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn .icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-text {
+    background: transparent;
+    color: var(--text-muted);
+}
+
+.btn-text:hover {
+    color: var(--danger);
+}
+
+/* 主体切换页 */
+.main-content {
+    padding: 30px 20px 60px;
+}
+
+.tab-page {
+    display: none;
+}
+
+.tab-page.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero 区域 - 头图选取里约基督山像 (bg02.png) */
+.hero-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 41, 59, 0.80) 100%), url('images/bg/bg02.png') center/cover no-repeat;
+    color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 16px 0 12px;
+    line-height: 1.3;
+}
+
+.hero-desc {
+    font-size: 15px;
+    color: #94a3b8;
+    max-width: 800px;
+    margin-bottom: 24px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #38bdf8;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+/* 徽章 Badge */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.badge-accent {
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.badge-hot {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+/* 章节区块通用 */
+.section-block {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.section-header {
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.num-badge {
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 6px;
+}
+
+.section-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* 1. 对比网格 */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.comp-card {
+    border-radius: var(--radius-md);
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    background: #fafafa;
+    position: relative;
+}
+
+.comp-card.featured {
+    background: #ffffff;
+    border: 2px solid var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.ribbon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.comp-header {
+    margin-bottom: 20px;
+}
+
+.comp-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #e2e8f0;
+    color: #475569;
+    margin-top: 4px;
+}
+
+.tag-success {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.comp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.comp-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.cross { color: var(--danger); font-weight: bold; }
+.check { color: var(--success); font-weight: bold; }
+
+/* 2. 双轨落地方案 */
+.plan-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.plan-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.plan-card.highlight {
+    border: 2px solid var(--success);
+    background: #f0fdf4;
+}
+
+.plan-badge {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.plan-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.plan-summary {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.plan-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-label {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.feature-val {
+    color: #475569;
+}
+
+.plan-footer {
+    border-top: 1px dashed var(--border-color);
+    padding-top: 16px;
+
+}
+
+.price-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.plan-card.highlight .price-text {
+    color: var(--success);
+}
+
+/* 3. 避坑指南 */
+.pitfalls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.pitfall-card {
+    border: 1px solid #fee2e2;
+    background: #fff5f5;
+    border-radius: var(--radius-md);
+    padding: 20px;
+}
+
+.pitfall-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.warning-icon {
+    font-size: 20px;
+}
+
+.pitfall-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #991b1b;
+}
+
+.risk-desc {
+    font-size: 13px;
+    color: #7f1d1d;
+    margin-bottom: 12px;
+}
+
+.solution-box {
+    background: #ffffff;
+    border-left: 4px solid var(--success);
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #064e3b;
+}
+
+/* 4. 三大认证 */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cert-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.cert-icon-bg {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #cbd5e1;
+    letter-spacing: 1px;
+}
+
+.cert-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.sub-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.cert-details {
+    font-size: 13px;
+}
+
+.cert-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.cert-row .val.highlight {
+    color: var(--danger);
+    font-weight: 700;
+}
+
+.cert-scope {
+    margin-top: 16px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 12px;
+}
+
+.cert-scope ul {
+    margin-top: 6px;
+    padding-left: 16px;
+    color: #475569;
+}
+
+.cert-scope li {
+    margin-bottom: 4px;
+}
+
+/* 5. 时间轴 Timeline */
+.timeline {
+    position: relative;
+    padding-left: 24px;
+    border-left: 3px solid #e2e8f0;
+    margin: 20px 0;
+}
+
+.timeline-step {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.timeline-step:last-child {
+    margin-bottom: 0;
+}
+
+.step-num {
+    position: absolute;
+    left: -38px;
+    top: 0;
+    background: #cbd5e1;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.timeline-step.highlight .step-num {
+    background: var(--accent);
+}
+
+.step-content {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+}
+
+.step-content h4 {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.step-time {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 4px 0 8px;
+}
+
+.step-content p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* 6. Checklist 资料清单 */
+.checklist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.checklist-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+}
+
+.checklist-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.region-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tab-box {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: var(--radius-sm);
+}
+
+.tab-box h4 {
+    font-size: 14px;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.tab-box ul {
+    padding-left: 18px;
+    font-size: 13px;
+    color: #475569;
+}
+
+.alert-info {
+    margin-top: 16px;
+    background: #eff6ff;
+    border-left: 4px solid var(--accent);
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #1e40af;
+}
+
+.check-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.check-items li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==========================================================================
+   选项卡 2：服务报价单 & 报价计算器
+   ========================================================================== */
+
+.pricing-header-banner {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #ffffff;
+    padding: 36px 30px;
+    border-radius: var(--radius-md);
+    margin-bottom: 32px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.pricing-header-banner h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pricing-header-banner p {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 6px;
+}
+
+.pricing-sub-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.pricing-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.price-box {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    position: relative;
+    background: #ffffff;
+}
+
+.price-box.featured-price {
+    border: 2px solid var(--success);
+    box-shadow: var(--shadow-md);
+}
+
+.hot-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--success);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.price-head h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.amount {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.unit {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.original {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+.price-features {
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+    color: #475569;
+}
+
+/* 交互式计算器结构 */
+.calculator-container {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.calc-header {
+    background: #f8fafc;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.calc-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.calc-title .icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--accent);
+}
+
+.calc-title h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.calc-header p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.calc-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.calc-options {
+    padding: 24px;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.option-group h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.calc-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.calc-item:hover {
+    background: #f1f5f9;
+}
+
+.calc-item input {
+    margin-right: 10px;
+}
+
+.item-name {
+    font-size: 13px;
+    color: var(--text-main);
+    flex-grow: 1;
+}
+
+.item-price {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* 汇总面板 */
+.calc-summary-panel {
+    background: #f8fafc;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.calc-summary-panel h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.selected-items-list {
+    min-height: 120px;
+    max-height: 220px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    background: #ffffff;
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+.selected-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px dashed #f1f5f9;
+}
+
+.totals-breakdown {
+    border-top: 2px dashed var(--border-color);
+    padding-top: 16px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.total-row.grand-total {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.grand-price {
+    color: var(--danger);
+    font-size: 20px;
+}
+
+.rate-note {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+.panel-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 表格视觉样式 */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+.custom-table th, .custom-table td {
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+}
+
+.custom-table th {
+    background: #f1f5f9;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.custom-table tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.custom-table tr.highlight-row {
+    background: #fefce8;
+}
+
+/* Logo 样式 */
+.brand-logo-img {
+    height: 48px;
+    width: auto;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Hero 布局 */
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 30px;
+    align-items: center;
+}
+
+.hero-contact-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-qr-img {
+    width: 140px;
+    height: 140px;
+    border-radius: var(--radius-sm);
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+
+.hero-qr-text {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.hero-qr-text strong {
+    font-size: 14px;
+    color: #38bdf8;
+}
+
+.hero-qr-text span.sub {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+/* 计算器面板二维码卡片 */
+.panel-qr-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.panel-qr-img {
+    width: 72px;
+    height: 72px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.panel-qr-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-qr-info strong {
+    font-size: 13px;
+    color: var(--primary);
+}
+
+.panel-qr-info span {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* 页脚 */
+.site-footer {
+    padding: 40px 0 24px;
+    color: var(--text-muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border-color);
+    background: #f8fafc;
+}
+
+.footer-card {
+    max-width: 660px;
+    margin: 0 auto 24px;
+    padding: 22px 32px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 2px;
+}
+
+.footer-slogan {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.footer-sub-slogan {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.footer-divider {
+    width: 1px;
+    height: 60px;
+    background: var(--border-color);
+    flex-shrink: 0;
+}
+
+.footer-qr {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.footer-qr-img {
+    width: 76px;
+    height: 76px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    padding: 2px;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+
+.footer-qr-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.footer-qr-text strong {
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.footer-qr-text span {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px dashed var(--border-color);
+    padding-top: 16px;
+}
+
+/* 响应式调整 */
+@media (max-width: 900px) {
+    .header-container { flex-direction: column; height: auto; padding: 15px; gap: 10px; }
+    .hero-layout { grid-template-columns: 1fr; }
+    .hero-contact-card { max-width: 280px; margin: 0 auto; }
+    .comparison-grid, .plan-cards-grid, .pitfalls-grid, .cert-grid, .checklist-grid, .pricing-cards, .calc-body {
+        grid-template-columns: 1fr;
+    }
+    .calc-options { border-right: none; border-bottom: 1px solid var(--border-color); }
+    .footer-card { flex-direction: column; gap: 16px; text-align: center; padding: 20px; }
+    .footer-brand { align-items: center; }
+    .footer-divider { display: none; }
+}
+
+/* ==========================================================================
+   A4 PDF 连续无留白打印排版与样式控制 (@media print)
+   ========================================================================== */
+
+@page {
+    size: A4 portrait;
+    margin: 8mm 10mm 8mm 10mm; /* A4 标准紧凑边距，极大化内容利用率 */
+}
+
+@media print {
+    /* 1. 强制启用色彩精确打印，保持卡片背景、徽章与渐变效果 */
+    *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    /* 2. 隐藏无关的 UI 元素 */
+    .site-header,
+    .header-actions,
+    .panel-actions,
+    #reset-calc,
+    .nav-btn {
+        display: none !important;
+    }
+
+    /* 3. 页面基准尺寸与 A4 适配 */
+    html, body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 10pt !important;
+        line-height: 1.4 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .main-content {
+        padding: 0 !important;
+    }
+
+    /* 4. 选项卡打印控制 */
+    .tab-page {
+        display: none !important;
+    }
+
+    .tab-page.active {
+        display: block !important;
+    }
+
+    body.print-all .tab-page {
+        display: block !important;
+    }
+
+    /* 5. 连续流排版控制：允许大容器自然跨页流动，严禁整体大断页留空 */
+    .hero-card,
+    .section-block,
+    .comparison-grid,
+    .plan-cards-grid,
+    .pitfalls-grid,
+    .cert-grid,
+    .checklist-grid,
+    .timeline,
+    .pricing-cards,
+    .calculator-container,
+    .table-wrapper,
+    .footer-card {
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+    }
+
+    /* 仅保留独立小叶子节点卡片的防拆分，保证内容连续流动 */
+    .comp-card,
+    .plan-card,
+    .pitfall-card,
+    .cert-card,
+    .checklist-card,
+    .price-box,
+    .timeline-step,
+    .custom-table tr {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    /* 6. Hero 区域紧凑化排版（防止第一页大量留空） */
+    .hero-card {
+        margin-bottom: 12px !important;
+        padding: 16px 20px !important;
+        border-radius: 8px !important;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 100%), url('images/bg/bg02.png') center/cover no-repeat !important;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr 180px !important;
+        gap: 16px !important;
+    }
+
+    .hero-title {
+        font-size: 16pt !important;
+        margin: 6px 0 !important;
+    }
+
+    .hero-desc {
+        font-size: 9.5pt !important;
+        margin-bottom: 10px !important;
+    }
+
+    .hero-stats {
+        padding-top: 10px !important;
+        gap: 20px !important;
+    }
+
+    .stat-value {
+        font-size: 18pt !important;
+    }
+
+    .stat-label {
+        font-size: 9pt !important;
+    }
+
+    .hero-contact-card {
+        padding: 10px !important;
+        gap: 6px !important;
+    }
+
+    .hero-qr-img {
+        width: 84px !important;
+        height: 84px !important;
+    }
+
+    .hero-qr-text strong {
+        font-size: 11pt !important;
+    }
+
+    .hero-qr-text span {
+        font-size: 8.5pt !important;
+    }
+
+    /* 7. 章节与小卡片紧凑排版 */
+    .section-block {
+        margin-bottom: 12px !important;
+        padding: 14px 16px !important;
+        border-radius: 6px !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+    }
+
+    .section-header {
+        margin-bottom: 10px !important;
+    }
+
+    .section-title {
+        font-size: 13pt !important;
+    }
+
+    .section-sub {
+        font-size: 9pt !important;
+    }
+
+    .num-badge {
+        font-size: 9pt !important;
+        padding: 1px 6px !important;
+    }
+
+    .comparison-grid, .plan-cards-grid, .pitfalls-grid, .checklist-grid, .pricing-cards {
+        gap: 12px !important;
+    }
+
+    .comp-card, .plan-card, .pitfall-card, .checklist-card, .price-box {
+        padding: 12px 14px !important;
+        border-radius: 6px !important;
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .cert-card {
+        padding: 12px !important;
+    }
+
+    .cert-header h3 {
+        font-size: 12pt !important;
+    }
+
+    .cert-scope {
+        margin-top: 8px !important;
+        padding-top: 6px !important;
+    }
+
+    .timeline {
+        margin: 10px 0 !important;
+        padding-left: 18px !important;
+    }
+
+    .timeline-step {
+        margin-bottom: 10px !important;
+    }
+
+    .step-content {
+        padding: 8px 12px !important;
+    }
+
+    /* 8. 表格与计算器连续流排版 */
+    .pricing-header-banner {
+        padding: 18px 20px !important;
+        margin-bottom: 12px !important;
+        border-radius: 6px !important;
+    }
+
+    .pricing-header-banner h2 {
+        font-size: 16pt !important;
+    }
+
+    .custom-table th, .custom-table td {
+        padding: 6px 8px !important;
+        font-size: 8.5pt !important;
+    }
+
+    .calc-body {
+        grid-template-columns: 1.4fr 1fr !important;
+    }
+
+    .calc-options {
+        padding: 12px !important;
+        gap: 12px !important;
+    }
+
+    .calc-summary-panel {
+        padding: 12px !important;
+    }
+
+    .panel-qr-card {
+        margin-top: 10px !important;
+        padding: 8px 10px !important;
+    }
+
+    .panel-qr-img {
+        width: 56px !important;
+        height: 56px !important;
+    }
+
+    /* 9. 居中页脚紧凑化控制 */
+    .site-footer {
+        background: transparent !important;
+        padding: 12px 0 0 !important;
+        border-top: none !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    .footer-card {
+        max-width: 100% !important;
+        padding: 10px 16px !important;
+        border: 1px solid #cbd5e1 !important;
+        margin-bottom: 8px !important;
+        box-shadow: none !important;
+        gap: 20px !important;
+    }
+
+    .footer-logo {
+        height: 32px !important;
+    }
+
+    .footer-qr-img {
+        width: 56px !important;
+        height: 56px !important;
+    }
+
+    .footer-bottom {
+        font-size: 8pt !important;
+        padding-top: 6px !important;
+    }
+}
+
